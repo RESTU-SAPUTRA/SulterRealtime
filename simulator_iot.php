@@ -36,6 +36,7 @@ $loopWaypoints = [
 $routes = [
     'SHT-01' => $loopWaypoints,
     'SHT-02' => $loopWaypoints,
+    'SHT-03' => $loopWaypoints,
 ];
 
 $shuttleStates = [
@@ -46,9 +47,15 @@ $shuttleStates = [
         'max_capacity'       => 12,
     ],
     'SHT-02' => [
-        'waypoint_index'     => 8,
+        'waypoint_index'     => 5,
         'dwell_ticks'        => 0,
         'current_passengers' => 6,
+        'max_capacity'       => 12,
+    ],
+    'SHT-03' => [
+        'waypoint_index'     => 10,
+        'dwell_ticks'        => 0,
+        'current_passengers' => 3,
         'max_capacity'       => 12,
     ],
 ];

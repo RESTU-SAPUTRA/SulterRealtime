@@ -33,6 +33,8 @@ class AdminController extends Controller
             return $redirect;
         }
 
+        ShuttleRouteSimulator::tickIfDue(2);
+
         $shuttles = Shuttle::orderBy('vehicle_code')->get();
         $stops = Stop::orderBy('order_index')->get();
         $totalAuditLogs = TelemetryAuditLog::count();
@@ -270,6 +272,8 @@ class AdminController extends Controller
         if ($redirect = $this->authorizeStaff()) {
             return $redirect;
         }
+
+        ShuttleRouteSimulator::tickIfDue(2);
 
         $selectedVehicle = $request->query('vehicle_code');
 

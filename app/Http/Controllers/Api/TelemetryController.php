@@ -145,6 +145,9 @@ class TelemetryController extends Controller
     
     public function getLatestAuditLogs(Request $request): JsonResponse
     {
+        // Jalankan simulator rute jika interval terpenuhi agar Audit Trail selalu aktif secara mandiri
+        ShuttleRouteSimulator::tickIfDue(2);
+
         $vehicleCode = $request->query('vehicle_code');
         $limit = min(100, max(10, (int) $request->query('limit', 25)));
 

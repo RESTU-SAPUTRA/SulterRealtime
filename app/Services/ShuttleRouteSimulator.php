@@ -158,7 +158,7 @@ class ShuttleRouteSimulator
             $dwellRemaining = (int) Cache::get($dwellKey, 0);
 
             $lastUpdate = $shuttle->last_telemetry_at;
-            $shouldAdvance = ($lastUpdate === null || $lastUpdate->diffInSeconds(now()) >= $minIntervalSeconds);
+            $shouldAdvance = ($lastUpdate === null || abs(now()->timestamp - $lastUpdate->timestamp) >= $minIntervalSeconds);
 
             $isDwellingAtStop = false;
             $justArrivedAtStop = false;

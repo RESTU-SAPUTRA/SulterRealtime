@@ -105,6 +105,13 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Gagal memperbarui audit log:', error);
         }
+        if (filterSelect) {
+            filterSelect.addEventListener('change', function () {
+                if (isLive) {
+                    fetchAuditLogs();
+                }
+            });
+        }
     }
 
     toggleBtn.addEventListener('click', function () {
@@ -121,5 +128,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    setInterval(fetchAuditLogs, 3000);
+    setInterval(fetchAuditLogs, 2500);
 });
